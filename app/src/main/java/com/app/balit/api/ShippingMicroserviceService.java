@@ -11,7 +11,7 @@ public class ShippingMicroserviceService {
     public static ShippingMicroserviceAPI getInstance(){
         if(instance == null){
             instance = new Retrofit.Builder()
-                    .baseUrl(Utils.getUrlBase())
+                    .baseUrl(Utils.getUrlBase() )
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(ShippingMicroserviceAPI.class);
