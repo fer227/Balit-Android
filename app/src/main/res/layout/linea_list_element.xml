@@ -28,7 +28,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraint_image_linea"
-                    android:layout_width="300dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="4dp"
@@ -38,8 +38,8 @@
 
                     <ImageView
                         android:id="@+id/image_linea"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_marginStart="15dp"
                         android:background="@drawable/n3"
                         app:layout_constraintStart_toStartOf="parent"
@@ -50,28 +50,30 @@
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:text="CERRILLO MARACENA-TRIUNFO"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/image_linea"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.512" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/button_info_linea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="20dp"
+                        android:clickable="true"
+                        app:fabSize="mini"
+                        app:layout_constraintStart_toEndOf="@+id/descripcion_linea"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:maxImageSize="20dp"
+                        app:srcCompat="@drawable/info"
+                        app:tint="@color/white" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/button_info_linea"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="15dp"
-                    android:clickable="true"
-                    app:fabSize="normal"
-                    app:maxImageSize="30dp"
-                    app:srcCompat="@drawable/info"
-                    app:tint="@color/white" />
             </RelativeLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

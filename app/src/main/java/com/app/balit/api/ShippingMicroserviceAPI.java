@@ -8,6 +8,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ShippingMicroserviceAPI {
-    @GET
+    @GET("/lineas")
     Call<List<Linea>> getLineas();
 }

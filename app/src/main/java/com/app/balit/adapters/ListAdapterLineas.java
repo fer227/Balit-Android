@@ -40,6 +40,13 @@ public class ListAdapterLineas extends RecyclerView.Adapter<ListAdapterLineas.Vi
     @Override
     public void onBindViewHolder(ListAdapterLineas.ViewHolder holder, int position){
         holder.bindData(datos.get(position));
+
+        holder.infoLinea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -56,13 +63,18 @@ public class ListAdapterLineas extends RecyclerView.Adapter<ListAdapterLineas.Vi
 
         void bindData(final Linea linea){
             descripcion.setText(linea.getDescripcion());
+            System.out.println("linea.getNombre()");
+            System.out.println(linea.getNombre());
             switch (linea.getNombre()){
                 case "N3":
                     imageLinea.setBackground(context.getDrawable(R.drawable.n3));
-                case "5":
-                    imageLinea.setBackground(context.getDrawable(R.drawable.linea5));
+                    break;
                 case "C4":
                     imageLinea.setBackground(context.getDrawable(R.drawable.c4));
+                    break;
+                case "5":
+                    imageLinea.setBackground(context.getDrawable(R.drawable.linea5));
+                    break;
             }
         }
     }
