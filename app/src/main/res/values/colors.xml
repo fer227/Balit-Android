@@ -9,11 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Primary brand color. -->
-    <color name="colorPrimary">#cddc39</color>
-    <color name="colorPrimaryVariant">#99aa00</color>
-    <color name="colorOnPrimary">#ffff6e</color>
+    <color name="colorPrimary">#827616</color>
+    <color name="colorPrimaryVariant">#b4a446</color>
+    <color name="colorOnPrimary">#524b00</color>
     <!-- Secondary brand color. -->
-    <color name="colorSecondary">#827616</color>
-    <color name="colorSecondaryVariant">#b4a446</color>
-    <color name="colorOnSecondary">#524b00</color>
+    <color name="colorSecondary">#cddc39</color>
+    <color name="colorSecondaryVariant">#99aa00</color>
+    <color name="colorOnSecondary">#ffff6e</color>
 </resources>

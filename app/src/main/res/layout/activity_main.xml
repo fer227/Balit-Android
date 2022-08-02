@@ -18,20 +18,19 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:titleTextColor="@color/black">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10px"
-                android:paddingBottom="10px"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:maxWidth="200dp"
-                android:maxHeight="50dp"
+                android:maxHeight="60dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/logo_negro" />
+                android:src="@drawable/logo_blanco" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -42,7 +41,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Líneas"
-        android:textColor="@color/colorOnSecondary"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="5dp"
