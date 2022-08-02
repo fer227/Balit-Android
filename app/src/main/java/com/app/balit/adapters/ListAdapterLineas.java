@@ -67,8 +67,6 @@ public class ListAdapterLineas extends RecyclerView.Adapter<ListAdapterLineas.Vi
 
         void bindData(final Linea linea){
             descripcion.setText(linea.getDescripcion());
-            System.out.println("linea.getNombre()");
-            System.out.println(linea.getNombre());
             switch (linea.getNombre()){
                 case "N3":
                     imageLinea.setBackground(context.getDrawable(R.drawable.n3));
