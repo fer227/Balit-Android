@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Linea>> call, Throwable t) {
                 Utils.enviarToast("Error al intentar recibir las líneas", getApplicationContext());
-                System.out.println("---------------------");
-                System.out.println(t.toString());
             }
         });
 

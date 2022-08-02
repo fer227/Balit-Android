@@ -10,7 +10,7 @@ public class ParadaOrdenPair {
 
     @SerializedName("orden")
     @Expose
-    private String orden;
+    private int orden;
 
     public String getNumeroParada() {
         return numeroParada;
@@ -20,15 +20,15 @@ public class ParadaOrdenPair {
         this.numeroParada = numeroParada;
     }
 
-    public String getOrden() {
+    public int getOrden() {
         return orden;
     }
 
-    public void setOrden(String orden) {
+    public void setOrden(int orden) {
         this.orden = orden;
     }
 
-    public ParadaOrdenPair(String numeroParada, String orden) {
+    public ParadaOrdenPair(String numeroParada, int orden) {
         this.numeroParada = numeroParada;
         this.orden = orden;
     }
