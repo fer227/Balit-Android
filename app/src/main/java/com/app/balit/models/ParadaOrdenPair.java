@@ -6,17 +6,17 @@ import com.google.gson.annotations.SerializedName;
 public class ParadaOrdenPair {
     @SerializedName("numeroParada")
     @Expose
-    private String numeroParada;
+    private int numeroParada;
 
     @SerializedName("orden")
     @Expose
     private int orden;
 
-    public String getNumeroParada() {
+    public int getNumeroParada() {
         return numeroParada;
     }
 
-    public void setNumeroParada(String numeroParada) {
+    public void setNumeroParada(int numeroParada) {
         this.numeroParada = numeroParada;
     }
 
@@ -28,7 +28,7 @@ public class ParadaOrdenPair {
         this.orden = orden;
     }
 
-    public ParadaOrdenPair(String numeroParada, int orden) {
+    public ParadaOrdenPair(int numeroParada, int orden) {
         this.numeroParada = numeroParada;
         this.orden = orden;
     }
