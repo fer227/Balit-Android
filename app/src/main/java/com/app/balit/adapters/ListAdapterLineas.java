@@ -1,6 +1,7 @@
 package com.app.balit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.balit.LineaDetail;
 import com.app.balit.R;
 import com.app.balit.models.Linea;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,7 +46,9 @@ public class ListAdapterLineas extends RecyclerView.Adapter<ListAdapterLineas.Vi
         holder.infoLinea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, LineaDetail.class);
+                intent.putExtra("nombre", datos.get(position).getNombre());
+                context.startActivity(intent);
             }
         });
     }
