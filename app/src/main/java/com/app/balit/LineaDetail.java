@@ -13,9 +13,5 @@ public class LineaDetail extends AppCompatActivity {
         setContentView(R.layout.activity_linea_detail);
 
         String nombreLinea = getIntent().getExtras().getString("nombre");
-
-        TextView tituloLinea = findViewById(R.id.titulo_linea);
-
-        tituloLinea.setText(nombreLinea);
     }
 }

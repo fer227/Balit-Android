@@ -33,16 +33,56 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/titulo_linea"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/image_detail_linea"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/n3"
         android:gravity="center"
-        android:text="N3"
-        android:textColor="@color/black"
-        android:textSize="35sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/appbar"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/appbar" />
 
+    <Button
+        android:id="@+id/button_pois"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/colorPrimaryVariant"
+        android:drawableRight="@drawable/location"
+        android:drawableTint="@color/black"
+        android:text="PUNTOS DE INTERÉS"
+        android:textColor="@color/black"
+        android:layout_marginRight="40dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_detail_linea"></Button>
+
+    <Button
+        android:id="@+id/button_map"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/colorPrimaryVariant"
+        android:drawableRight="@drawable/map"
+        android:drawableTint="@color/black"
+        android:text="MAPA"
+        android:textColor="@color/black"
+        android:layout_marginLeft="40dp"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_detail_linea"></Button>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista_paradas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/button_pois">
+    </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>
