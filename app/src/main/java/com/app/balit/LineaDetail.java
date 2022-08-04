@@ -52,8 +52,7 @@ public class LineaDetail extends AppCompatActivity {
             public void onResponse(Call<PackInfoParada> call, Response<PackInfoParada> response) {
                 paradas.clear();
                 PackInfoParada packInfoParada = response.body();
-                System.out.println("---------------");
-                System.out.println(packInfoParada);
+
                 Map<Integer, Integer> paradaByOrdenMap = new HashMap<Integer, Integer>();
                 for (ParadaOrdenPair pair: packInfoParada.getOrden()){
                     paradaByOrdenMap.put(pair.getOrden(), pair.getNumeroParada());
@@ -64,11 +63,6 @@ public class LineaDetail extends AppCompatActivity {
                     paradaByNumeroMap.put(parada.getNumero(), parada);
                 }
 
-                System.out.println("---------------");
-                System.out.println(paradaByOrdenMap);
-
-                System.out.println("---------------");
-                System.out.println(paradaByNumeroMap);
                 for(int i = 1; i <= paradaByOrdenMap.size(); i++){
                     paradas.add(paradaByNumeroMap.get(paradaByOrdenMap.get(i)));
                 }

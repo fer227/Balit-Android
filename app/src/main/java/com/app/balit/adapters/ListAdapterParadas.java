@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.balit.LineaDetail;
+import com.app.balit.ParadaDetail;
 import com.app.balit.R;
 import com.app.balit.models.Linea;
 import com.app.balit.models.Parada;
@@ -47,7 +48,9 @@ public class ListAdapterParadas extends RecyclerView.Adapter<ListAdapterParadas.
         holder.infoParada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //go to detail parada
+                Intent intent = new Intent(context, ParadaDetail.class);
+                intent.putExtra("numero", datos.get(position).getNumero());
+                context.startActivity(intent);
             }
         });
     }
