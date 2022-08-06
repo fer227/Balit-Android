@@ -2,6 +2,7 @@ package com.app.balit.api;
 
 import com.app.balit.models.Linea;
 import com.app.balit.models.PackInfoParada;
+import com.app.balit.models.Parada;
 
 import java.util.List;
 
@@ -15,4 +16,10 @@ public interface ShippingMicroserviceAPI {
 
     @GET("/paradas/linea/{id}")
     Call<PackInfoParada> getParadas(@Path("id") String id);
+
+    @GET("/paradas/{id}")
+    Call<Parada> getParada(@Path("id") String id);
+
+    @GET("/lineas/{id}")
+    Call<Linea> getLinea(@Path("id") String id);
 }

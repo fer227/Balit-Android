@@ -8,6 +8,18 @@ public class Conexion {
     @Expose
     private String nombreLinea;
 
+    @SerializedName("descripcion")
+    @Expose
+    private String descripcion;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public String getNombreLinea() {
         return nombreLinea;
     }
@@ -24,6 +36,7 @@ public class Conexion {
     public String toString() {
         return "Conexion{" +
                 "nombreLinea='" + nombreLinea + '\'' +
+                "descripcion='" + nombreLinea + '\'' +
                 '}';
     }
 }

@@ -27,13 +27,14 @@ import retrofit2.Response;
 public class LineaDetail extends AppCompatActivity {
     static ListAdapterParadas listAdapterParadas;
     ArrayList<Parada> paradas = new ArrayList<Parada>();
+    String nombreLinea;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linea_detail);
 
-        String nombreLinea = getIntent().getExtras().getString("nombre");
+        nombreLinea = getIntent().getExtras().getString("nombre");
         ImageView imageLinea = findViewById(R.id.image_detail_linea);
         switch (nombreLinea){
             case "N3":

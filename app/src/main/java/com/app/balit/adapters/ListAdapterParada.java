@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.balit.ParadaDetail;
 import com.app.balit.R;
+import com.app.balit.models.Conexion;
 import com.app.balit.models.Linea;
 import com.app.balit.models.Parada;
 
@@ -20,11 +21,11 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ListAdapterParada extends RecyclerView.Adapter<ListAdapterParada.ViewHolder> {
-    private List<Linea> datos;
+    private List<Conexion> datos;
     private LayoutInflater inflador;
     private Context context;
 
-    public ListAdapterParada(List<Linea> datos, Context context){
+    public ListAdapterParada(List<Conexion> datos, Context context){
         this.inflador = LayoutInflater.from(context);
         this.context = context;
         this.datos = datos;
@@ -58,8 +59,8 @@ public class ListAdapterParada extends RecyclerView.Adapter<ListAdapterParada.Vi
             timeLinea = itemView.findViewById(R.id.time_linea);
         }
 
-        void bindData(final Linea linea){
-            switch (linea.getNombre()){
+        void bindData(final Conexion conexion){
+            switch (conexion.getNombreLinea()){
                 case "N3":
                     iconLinea.setBackground(context.getDrawable(R.drawable.n3));
                     break;
@@ -71,7 +72,7 @@ public class ListAdapterParada extends RecyclerView.Adapter<ListAdapterParada.Vi
                     break;
             }
 
-            descripcionLinea.setText(linea.getDescripcion());
+            descripcionLinea.setText(conexion.getDescripcion());
             int randomNum = ThreadLocalRandom.current().nextInt(1, 17);
             timeLinea.setText(randomNum + " min");
         }
