@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.balit.LineaDetail;
@@ -42,6 +43,11 @@ public class ListAdapterPois extends RecyclerView.Adapter<ListAdapterPois.ViewHo
     @Override
     public void onBindViewHolder(ListAdapterPois.ViewHolder holder, int position){
         holder.bindData(datos.get(position));
+
+        ListAdapterTags listAdapterTagst = new ListAdapterTags(datos.get(position).getTags(), context);
+        holder.chipsPoi.setHasFixedSize(true);
+        holder.chipsPoi.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        holder.chipsPoi.setAdapter(listAdapterTagst);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
