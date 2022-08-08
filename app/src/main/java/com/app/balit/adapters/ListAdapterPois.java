@@ -58,7 +58,7 @@ public class ListAdapterPois extends RecyclerView.Adapter<ListAdapterPois.ViewHo
 
         ViewHolder(View itemView){
             super(itemView);
-            imagePoi = itemView.findViewById(R.id.image_poi);
+            imagePoi = itemView.findViewById(R.id.image_poi_card);
             tituloPoi = itemView.findViewById(R.id.titulo_poi);
             descripcionPoi = itemView.findViewById(R.id.descripcion_poi);
             chipsPoi = itemView.findViewById(R.id.lista_tags_poi);
@@ -67,21 +67,22 @@ public class ListAdapterPois extends RecyclerView.Adapter<ListAdapterPois.ViewHo
         void bindData(final POI poi){
             tituloPoi.setText(poi.getNombre());
             descripcionPoi.setText(poi.getDescripcion());
+            System.out.println(poi.getNombre());
             switch (poi.getNombre()){
                 case "Catedral":
-                    imagePoi.setBackground(context.getDrawable(R.drawable.catedral));
+                    imagePoi.setImageDrawable(context.getDrawable(R.drawable.catedral));
                     break;
                 case "Estadio de la Juventud":
-                    imagePoi.setBackground(context.getDrawable(R.drawable.estadio_juventud));
+                    imagePoi.setImageDrawable(context.getDrawable(R.drawable.estadio_juventud));
                     break;
                 case "Paseo de los Tristes":
-                    imagePoi.setBackground(context.getDrawable(R.drawable.paseo_tristes));
+                    imagePoi.setImageDrawable(context.getDrawable(R.drawable.paseo_tristes));
                     break;
                 case "Parque de las Ciencias":
-                    imagePoi.setBackground(context.getDrawable(R.drawable.parque_ciencias));
+                    imagePoi.setImageDrawable(context.getDrawable(R.drawable.parque_ciencias));
                     break;
                 case "Estación de autobuses":
-                    imagePoi.setBackground(context.getDrawable(R.drawable.estacion));
+                    imagePoi.setImageDrawable(context.getDrawable(R.drawable.estacion));
                     break;
             }
         }

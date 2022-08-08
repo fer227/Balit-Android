@@ -27,7 +27,7 @@ public class ParadaDetail extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewpager);
         viewPager2.setAdapter(new PageAdapter(getSupportFragmentManager(), getLifecycle()));
 
-        tabLayout.addTab(tabLayout.newTab().setText("Tiempos de espera").setIcon(R.drawable.tiempo));
+        tabLayout.addTab(tabLayout.newTab().setText("Tiempos de espera").setIcon(R.drawable.tiempo) );
         tabLayout.addTab(tabLayout.newTab().setText("Puntos de interés").setIcon(R.drawable.location));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

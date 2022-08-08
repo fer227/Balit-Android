@@ -14,9 +14,16 @@ import android.widget.TextView;
 import com.app.balit.ParadaDetail;
 import com.app.balit.R;
 import com.app.balit.adapters.ListAdapterPois;
+import com.app.balit.api.ShippingMicroserviceService;
 import com.app.balit.models.POI;
+import com.app.balit.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +33,6 @@ import java.util.ArrayList;
 public class ParadaPOITab extends Fragment {
     static ListAdapterPois listAdapterPois;
     ArrayList<POI> pois = new ArrayList<>();
-    String nombreParada;
     String numeroParada;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -69,9 +75,23 @@ public class ParadaPOITab extends Fragment {
         }
 
         ParadaDetail activity = (ParadaDetail) getActivity();
-        nombreParada = activity.getNombreParada();
         numeroParada = activity.getNumeroParada();
 
+        ShippingMicroserviceService.getInstance().getPOISByParada(numeroParada).enqueue(new Callback<List<POI>>() {
+            @Override
+            public void onResponse(Call<List<POI>> call, Response<List<POI>> response) {
+                pois.clear();
+                pois.addAll(response.body());
+                System.out.println(response.body());
+                System.out.println(numeroParada);
+                listAdapterPois.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<POI>> call, Throwable t) {
+                Utils.enviarToast("Error al intentar recibir los puntos de interés de esta parada", getContext());
+            }
+        });
     }
 
     @Override
@@ -85,9 +105,6 @@ public class ParadaPOITab extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(listAdapterPois);
-
-        TextView titulo = view.findViewById(R.id.titulo_parada_detail_poi);
-        titulo.setText(nombreParada);
 
         return view;
     }

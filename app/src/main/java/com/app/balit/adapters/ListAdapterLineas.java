@@ -42,15 +42,16 @@ public class ListAdapterLineas extends RecyclerView.Adapter<ListAdapterLineas.Vi
     @Override
     public void onBindViewHolder(ListAdapterLineas.ViewHolder holder, int position){
         holder.bindData(datos.get(position));
-
-        holder.infoLinea.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener clicListener  = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, LineaDetail.class);
                 intent.putExtra("nombre", datos.get(position).getNombre());
                 context.startActivity(intent);
             }
-        });
+        };
+        holder.itemView.setOnClickListener(clicListener);
+        holder.infoLinea.setOnClickListener(clicListener);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
