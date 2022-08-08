@@ -3,12 +3,20 @@ package com.app.balit.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.app.balit.ParadaDetail;
 import com.app.balit.R;
+import com.app.balit.adapters.ListAdapterPois;
+import com.app.balit.models.POI;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,10 @@ import com.app.balit.R;
  * create an instance of this fragment.
  */
 public class ParadaPOITab extends Fragment {
+    static ListAdapterPois listAdapterPois;
+    ArrayList<POI> pois = new ArrayList<>();
+    String nombreParada;
+    String numeroParada;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,12 +67,28 @@ public class ParadaPOITab extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        ParadaDetail activity = (ParadaDetail) getActivity();
+        nombreParada = activity.getNombreParada();
+        numeroParada = activity.getNumeroParada();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_parada_p_o_i_tab, container, false);
+        View view = inflater.inflate(R.layout.fragment_parada_p_o_i_tab, container, false);
+
+        listAdapterPois = new ListAdapterPois(pois, getContext());
+        RecyclerView recyclerView = view.findViewById(R.id.lista_pois);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(listAdapterPois);
+
+        TextView titulo = view.findViewById(R.id.titulo_parada_detail_poi);
+        titulo.setText(nombreParada);
+
+        return view;
     }
 }

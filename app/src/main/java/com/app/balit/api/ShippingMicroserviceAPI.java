@@ -1,6 +1,7 @@
 package com.app.balit.api;
 
 import com.app.balit.models.Linea;
+import com.app.balit.models.POI;
 import com.app.balit.models.PackInfoParada;
 import com.app.balit.models.Parada;
 
@@ -22,4 +23,7 @@ public interface ShippingMicroserviceAPI {
 
     @GET("/lineas/{id}")
     Call<Linea> getLinea(@Path("id") String id);
+
+    @GET("/puntosdeinteres/parada/{id}")
+    Call<List<POI>> getPOISByParada(@Path("id") String id);
 }
