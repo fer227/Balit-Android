@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.balit.LineaDetail;
 import com.app.balit.R;
 import com.app.balit.models.Linea;
+import com.app.balit.models.ParadaOrdenPair;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;

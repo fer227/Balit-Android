@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -81,5 +84,23 @@ public class LineaDetail extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapterParadas);
+
+        Button buttonPois = findViewById(R.id.button_pois);
+        buttonPois.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LineaDetail.this, POIByLinea.class);
+                intent.putExtra("nombre", nombreLinea);
+
+                String query = "";
+                for(Parada parada: paradas){
+                    query += parada.getNumero() + "-";
+                }
+                query = query.substring(0, query.length() - 1);
+                intent.putExtra("query", query);
+
+                startActivity(intent);
+            }
+        });
     }
 }

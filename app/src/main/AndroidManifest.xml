@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Balit"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ParadaDetail"></activity>
+        <activity android:name=".POIByLinea"></activity>
+        <activity android:name=".ParadaDetail" />
         <activity android:name=".LineaDetail" />
         <activity android:name=".MainActivity">
             <intent-filter>
