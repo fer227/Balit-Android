@@ -51,6 +51,8 @@ public class ListAdapterParadas extends RecyclerView.Adapter<ListAdapterParadas.
                 Intent intent = new Intent(context, ParadaDetail.class);
                 intent.putExtra("numero", datos.get(position).getNumero());
                 intent.putExtra("nombreParada", datos.get(position).getNombre());
+                intent.putExtra("latitud", datos.get(position).getLatitud());
+                intent.putExtra("longitud", datos.get(position).getLongitud());
                 context.startActivity(intent);
             }
         });

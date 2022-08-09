@@ -13,6 +13,8 @@ public class ParadaDetail extends AppCompatActivity {
     public static ViewPager2 viewPager2;
     String numeroParada;
     String nombreParada;
+    double latitud;
+    double longitud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class ParadaDetail extends AppCompatActivity {
         int numero = getIntent().getExtras().getInt("numero");
         numeroParada = Integer.toString(numero);
         nombreParada = getIntent().getExtras().getString("nombreParada");
+        latitud = getIntent().getExtras().getDouble("latitud");
+        longitud = getIntent().getExtras().getDouble("longitud");
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager2 = findViewById(R.id.viewpager);
@@ -62,5 +66,13 @@ public class ParadaDetail extends AppCompatActivity {
 
     public String getNombreParada() {
         return nombreParada;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
     }
 }

@@ -2,6 +2,7 @@ package com.app.balit.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,12 @@ import com.app.balit.models.Conexion;
 import com.app.balit.models.Linea;
 import com.app.balit.models.Parada;
 import com.app.balit.utils.Utils;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
@@ -32,11 +39,13 @@ import retrofit2.Response;
  * Use the {@link ParadaDetailTab#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ParadaDetailTab extends Fragment {
+public class ParadaDetailTab extends Fragment implements OnMapReadyCallback {
     static ListAdapterParada listAdapterParada;
     ArrayList<Conexion> conexions = new ArrayList<Conexion>();
     String numeroParada;
     String nombreParada;
+    double latitud;
+    double longitud;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +89,8 @@ public class ParadaDetailTab extends Fragment {
         ParadaDetail activity = (ParadaDetail) getActivity();
         numeroParada = activity.getNumeroParada();
         nombreParada = activity.getNombreParada();
+        latitud = activity.getLatitud();
+        longitud = activity.getLongitud();
 
         ShippingMicroserviceService.getInstance().getParada(numeroParada).enqueue(new Callback<Parada>() {
             @Override
@@ -100,6 +111,7 @@ public class ParadaDetailTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_parada_detail_tab, container, false);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
         listAdapterParada = new ListAdapterParada(conexions, getContext());
         RecyclerView recyclerView = view.findViewById(R.id.lista_paradas_tiempo);
@@ -110,6 +122,18 @@ public class ParadaDetailTab extends Fragment {
         TextView titulo = view.findViewById(R.id.titulo_parada_detail);
         titulo.setText(nombreParada);
 
+        mapFragment.getMapAsync(this);
         return view;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        //LatLng ll = new LatLng(latitud, longitud);
+        LatLng ll = new LatLng(37.1842269, -3.6159723);
+
+        googleMap.addMarker(new MarkerOptions()
+                .position(ll)
+                .title(nombreParada));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 17));
     }
 }
