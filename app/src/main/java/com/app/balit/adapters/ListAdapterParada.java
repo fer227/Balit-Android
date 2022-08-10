@@ -75,6 +75,8 @@ public class ListAdapterParada extends RecyclerView.Adapter<ListAdapterParada.Vi
             descripcionLinea.setText(conexion.getDescripcion());
             int randomNum = ThreadLocalRandom.current().nextInt(1, 17);
             timeLinea.setText(randomNum + " min");
+            iconLinea.setContentDescription(conexion.getNombreLinea());
+            timeLinea.setContentDescription(randomNum + " " + "minutos");
         }
     }
 }

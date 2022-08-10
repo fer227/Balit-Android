@@ -73,6 +73,7 @@ public class ListAdapterParadas extends RecyclerView.Adapter<ListAdapterParadas.
 
         void bindData(final Parada parada){
             tituloParada.setText(parada.getNombre());
+            infoParada.setContentDescription("Más información");
         }
     }
 }

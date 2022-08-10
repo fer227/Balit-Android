@@ -80,6 +80,9 @@ public class ListAdapterLineas extends RecyclerView.Adapter<ListAdapterLineas.Vi
                     imageLinea.setBackground(context.getDrawable(R.drawable.linea5));
                     break;
             }
+
+            imageLinea.setContentDescription("Linea " + linea.getNombre());
+            infoLinea.setContentDescription("Más información");
         }
     }
 }
