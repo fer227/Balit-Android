@@ -128,12 +128,11 @@ public class ParadaDetailTab extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        //LatLng ll = new LatLng(latitud, longitud);
-        LatLng ll = new LatLng(37.1842269, -3.6159723);
+        LatLng latLng = new LatLng(latitud, longitud);
 
         googleMap.addMarker(new MarkerOptions()
-                .position(ll)
+                .position(latLng)
                 .title(nombreParada));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ll, 17));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
     }
 }
