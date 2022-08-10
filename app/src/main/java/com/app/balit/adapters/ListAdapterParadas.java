@@ -45,7 +45,7 @@ public class ListAdapterParadas extends RecyclerView.Adapter<ListAdapterParadas.
     public void onBindViewHolder(ListAdapterParadas.ViewHolder holder, int position){
         holder.bindData(datos.get(position));
 
-        holder.infoParada.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener clicListener  = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ParadaDetail.class);
@@ -55,7 +55,10 @@ public class ListAdapterParadas extends RecyclerView.Adapter<ListAdapterParadas.
                 intent.putExtra("longitud", datos.get(position).getLongitud());
                 context.startActivity(intent);
             }
-        });
+        };
+
+        holder.infoParada.setOnClickListener(clicListener);
+        holder.itemView.setOnClickListener(clicListener);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
