@@ -10,4 +10,4 @@ En este repositorio se encuentra lo relacionado puramente con el desarrollo de l
 
 ![get](./doc/img/capturas%20app.png)
 
-Este proyecto se complementa con su correspondiente back-end que de momento se compone de un microservicio. Lo puedes consultar [aquí](https://github.com/fer227/Balit-Android).
+Este proyecto se complementa con su correspondiente back-end que de momento se compone de un microservicio. Lo puedes consultar [aquí](https://github.com/fer227/Balit).
